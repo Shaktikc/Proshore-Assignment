@@ -20,7 +20,7 @@ import {
 import React from "react";
 import RepositoriesSorting from "./components/RepositoriesSorting";
 
-const SearchPageUI = () => {
+const ListOfRepository = () => {
   return (
     <Box mt="4rem">
       <InputGroup size="md" w="30rem">
@@ -109,4 +109,4 @@ const SearchPageUI = () => {
   );
 };
 
-export default SearchPageUI;
+export default ListOfRepository;
