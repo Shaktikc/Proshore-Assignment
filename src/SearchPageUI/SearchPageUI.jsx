@@ -68,9 +68,19 @@ const SearchPageUI = () => {
           <Tfoot>
             <Tr>
               <Th>10 Item out of 100</Th>
+              <Th></Th>
             </Tr>
           </Tfoot>
         </Table>
+        <Flex justifyContent={"space-between"} p="1rem" w="85vw">
+          {" "}
+          <Button colorScheme="teal" variant="outline">
+            Next Page
+          </Button>
+          <Button colorScheme="teal" variant="outline">
+            Previous Page
+          </Button>
+        </Flex>
       </TableContainer>
     </Box>
   );
