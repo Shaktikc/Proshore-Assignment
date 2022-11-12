@@ -35,34 +35,45 @@ const SearchPageUI = () => {
             <Tr>
               <Th>Name</Th>
               <Th>Author</Th>
-              <Th isNumeric>Watchers</Th>
-              <Th isNumeric>Forks</Th>
+              <Th>Watchers</Th>
+              <Th>Description</Th>
+              <Th>last update Date</Th>
+              <Th>Forks</Th>
             </Tr>
           </Thead>
           <Tbody>
             <Tr>
               <Td>Shakti</Td>
               <Td>Chetan Oli</Td>
-              <Td isNumeric>25</Td>
-              <Td isNumeric>5 peaople</Td>
+              <Td>25</Td>
+              <Td>
+                <Text> The National Institute for Health and Care</Text>
+                <Text> executive non-departmental public...</Text>
+              </Td>
+              <Td>2022-08-04</Td>
+              <Td>5</Td>
             </Tr>
             <Tr>
               <Td>Shakti</Td>
               <Td>Chetan Oli</Td>
-              <Td isNumeric>25</Td>
-              <Td isNumeric>5 peaople</Td>
+              <Td>25</Td>
+              <Td>
+                <Text> The National Institute for Health and Care</Text>
+                <Text> executive non-departmental public...</Text>
+              </Td>
+              <Td>2022-08-04</Td>
+              <Td>5</Td>
             </Tr>
             <Tr>
               <Td>Shakti</Td>
               <Td>Chetan Oli</Td>
-              <Td isNumeric>25</Td>
-              <Td isNumeric>5 peaople</Td>
-            </Tr>
-            <Tr>
-              <Td>Shakti</Td>
-              <Td>Chetan Oli</Td>
-              <Td isNumeric>25</Td>
-              <Td isNumeric>5 peaople</Td>
+              <Td>25</Td>
+              <Td>
+                <Text> The National Institute for Health and Care</Text>
+                <Text> executive non-departmental public...</Text>
+              </Td>
+              <Td>2022-08-04</Td>
+              <Td>5</Td>
             </Tr>
           </Tbody>
           <Tfoot>
@@ -77,7 +88,7 @@ const SearchPageUI = () => {
           <Button colorScheme="teal" variant="outline">
             Next Page
           </Button>
-          <Text fontSize={"xl"}>Page 1</Text>
+          <Text fontSize={"xl"}>Page 1 of 100</Text>
           <Button colorScheme="teal" variant="outline">
             Previous Page
           </Button>
