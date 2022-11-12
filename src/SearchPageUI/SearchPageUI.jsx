@@ -67,7 +67,7 @@ const SearchPageUI = () => {
           </Tbody>
           <Tfoot>
             <Tr>
-              <Th>10 Item out of 100</Th>
+              <Th>10 results per page</Th>
               <Th></Th>
             </Tr>
           </Tfoot>
@@ -77,6 +77,7 @@ const SearchPageUI = () => {
           <Button colorScheme="teal" variant="outline">
             Next Page
           </Button>
+          <Text fontSize={"xl"}>Page 1</Text>
           <Button colorScheme="teal" variant="outline">
             Previous Page
           </Button>
