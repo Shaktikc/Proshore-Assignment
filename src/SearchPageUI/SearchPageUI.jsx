@@ -13,6 +13,9 @@ import {
   HStack,
   Flex,
   Button,
+  InputRightElement,
+  Input,
+  InputGroup,
 } from "@chakra-ui/react";
 import React from "react";
 import RepositoriesSorting from "./components/RepositoriesSorting";
@@ -20,6 +23,14 @@ import RepositoriesSorting from "./components/RepositoriesSorting";
 const SearchPageUI = () => {
   return (
     <Box mt="4rem">
+      <InputGroup size="md" w="30rem">
+        <Input pr="4.5rem" type="text" placeholder="Search Repositories" />
+        <InputRightElement width="4.5rem">
+          {/* <Button h="1.75rem" size="sm" onClick={handleClick}>
+              {show ? "Hide" : "Show"}
+            </Button> */}
+        </InputRightElement>
+      </InputGroup>
       <Flex justifyContent={"space-between"} p="1rem" w="85vw">
         {" "}
         <Text fontSize={"xl"}>List of Repositories</Text>
@@ -42,7 +53,7 @@ const SearchPageUI = () => {
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
+            <Tr cursor={"pointer"}>
               <Td>Shakti</Td>
               <Td>Chetan Oli</Td>
               <Td>25</Td>
@@ -53,7 +64,7 @@ const SearchPageUI = () => {
               <Td>2022-08-04</Td>
               <Td>5</Td>
             </Tr>
-            <Tr>
+            <Tr cursor={"pointer"}>
               <Td>Shakti</Td>
               <Td>Chetan Oli</Td>
               <Td>25</Td>
@@ -64,7 +75,7 @@ const SearchPageUI = () => {
               <Td>2022-08-04</Td>
               <Td>5</Td>
             </Tr>
-            <Tr>
+            <Tr cursor={"pointer"}>
               <Td>Shakti</Td>
               <Td>Chetan Oli</Td>
               <Td>25</Td>
