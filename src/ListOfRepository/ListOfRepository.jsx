@@ -23,10 +23,11 @@ import Moment from "react-moment";
 import { useSelector } from "react-redux";
 import { getData } from "../reducers/githubDataReducer";
 import RepositoriesSorting from "./components/RepositoriesSorting";
+import useListOfRepostory from "./useListOfRepository";
 
 const ListOfRepository = () => {
-  const data = useSelector(getData);
-  console.log("component data", data);
+  const { page, setPage, data, nextPageHandler, previousPageHandler } =
+    useListOfRepostory();
   return (
     <Box>
       <Flex justifyContent={"space-between"} p="1rem" w="85vw">
@@ -92,11 +93,19 @@ const ListOfRepository = () => {
         </Table>
         <Flex justifyContent={"space-between"} p="1rem" w="85vw">
           {" "}
-          <Button colorScheme="teal" variant="outline">
+          <Button
+            colorScheme="teal"
+            variant="outline"
+            onClick={previousPageHandler}
+          >
             Previous Page
           </Button>
-          <Text fontSize={"xl"}>Page 1 of 100</Text>
-          <Button colorScheme="teal" variant="outline">
+          <Text fontSize={"xl"}>Page {page} of 100</Text>
+          <Button
+            colorScheme="teal"
+            variant="outline"
+            onClick={nextPageHandler}
+          >
             {" "}
             Next Page
           </Button>

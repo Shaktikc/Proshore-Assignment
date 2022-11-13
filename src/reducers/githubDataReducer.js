@@ -46,11 +46,13 @@ const getGithubDataReducer = (state = initialState, payload) => {
     }
 
     case SET_API_PARAMS: {
+      console.log("statejhgkjg", state.apiParams);
       return {
         ...state,
         apiParams: {
           ...state.apiParams,
-          searchText: payload.searchText,
+          searchText: payload.searchText || state.apiParams.searchText,
+          page: payload.page || state.apiParams.page,
         },
       };
     }
