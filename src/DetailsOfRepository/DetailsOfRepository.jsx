@@ -1,11 +1,11 @@
 import { Box, Text } from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
-import useFetchRepoData from "../api/useFetchRepoData";
-import { getData } from "../reducers/githubDataReducer";
+
+import { getDetails } from "../reducers/githubDataReducer";
 
 const DetailsOfRepository = () => {
-  // useFetchRepoData();
+  const detailsData = useSelector(getDetails);
 
   return (
     <Box padding={"2rem"} lineHeight="2rem">
@@ -13,10 +13,10 @@ const DetailsOfRepository = () => {
         Repositories Details
       </Text>
       <Box mt="2rem">
-        <Text>Owner Name: Shakti</Text>
-        <Text>Repository name: React Project</Text>
-        <Text>Number of open issues : 67</Text>
-        <Text> Default branch</Text>
+        <Text>Owner Name: {detailsData?.owner.login}</Text>
+        <Text>Repository name:{detailsData?.full_name}</Text>
+        <Text>Number of open issues : {detailsData?.open_issues}</Text>
+        <Text> Default branch : {detailsData.default_branch}</Text>
       </Box>
     </Box>
   );

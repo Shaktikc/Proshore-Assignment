@@ -124,7 +124,9 @@ const ListOfRepository = () => {
           >
             Previous Page
           </Button>
-          <Text fontSize={"xl"}>Page {page} of 100</Text>
+          <Text fontSize={"xl"}>
+            Page {page} of {parseInt(data.total_count / 10)}
+          </Text>
           <Button
             colorScheme="teal"
             variant="outline"

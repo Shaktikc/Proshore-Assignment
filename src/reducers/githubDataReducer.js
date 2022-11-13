@@ -84,3 +84,4 @@ export const getApiParam = (state) => {
 };
 export const getIsFetching = (state) => state.apiData.isFetching;
 export const getDataError = (state) => state.apiData.error;
+export const getDetails = (state) => state.apiData.details;
