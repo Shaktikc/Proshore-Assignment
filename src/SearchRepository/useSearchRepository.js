@@ -25,7 +25,6 @@ const useSearchRepository = () => {
       });
 
       navigate("/repository/list");
-      console.log("do validate", event.target.value);
     }
   }
   return { handelEnterEvent };

@@ -19,7 +19,6 @@ const initialState = {
 };
 
 const getGithubDataReducer = (state = initialState, payload) => {
-  console.log("payload", payload);
   const { type } = payload;
   payload = payload.payload || payload;
 
@@ -49,7 +48,6 @@ const getGithubDataReducer = (state = initialState, payload) => {
     }
 
     case SET_API_PARAMS: {
-      console.log("statejhgkjg", state.apiParams);
       return {
         ...state,
         apiParams: {

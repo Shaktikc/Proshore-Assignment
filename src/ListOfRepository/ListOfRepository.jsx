@@ -36,7 +36,6 @@ const ListOfRepository = () => {
     isFetching,
     listClickHandler,
   } = useListOfRepostory();
-  console.log("fetichinf", isFetching);
   return (
     <Box>
       <Flex justifyContent={"space-between"} p="1rem" w="85vw">

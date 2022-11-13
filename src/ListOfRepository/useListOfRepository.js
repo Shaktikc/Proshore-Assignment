@@ -13,7 +13,6 @@ const useListOfRepostory = () => {
   const data = useSelector(getData);
   const isFetching = useSelector(getIsFetching);
   const { fetchRepoData } = useFetchRepoData();
-  console.log("component data", data);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
 
@@ -23,7 +22,6 @@ const useListOfRepostory = () => {
   }
 
   useEffect(() => {
-    console.log("page");
     dispatch({
       type: SET_API_PARAMS,
       payload: { page: page },

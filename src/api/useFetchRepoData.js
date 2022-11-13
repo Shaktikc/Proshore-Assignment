@@ -9,8 +9,6 @@ import {
 import { getApiParam } from "../reducers/githubDataReducer";
 
 const useFetchRepoData = () => {
-  console.log("called");
-
   const dispatch = useDispatch();
   const apiParam = useSelector(getApiParam);
   console.log("apiParam", apiParam);
