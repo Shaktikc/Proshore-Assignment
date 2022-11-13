@@ -17,7 +17,11 @@ const useSearchRepository = () => {
       navigate("/repository/list");
     }
   }
-  return { handelEnterEvent };
+
+  function handelOnClick() {
+    navigate("/repository/list");
+  }
+  return { handelEnterEvent, handelOnClick };
 };
 
 export default useSearchRepository;
