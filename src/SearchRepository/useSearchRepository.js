@@ -13,17 +13,16 @@ const useSearchRepository = () => {
 
   const apiParam = useSelector(getApiParam);
 
-  useEffect(() => {
-    fetchRepoData();
-  }, [apiParam.searchText]);
-
   function handelEnterEvent(event) {
     if (event.key === "Enter") {
       dispatch({
         type: SET_API_PARAMS,
         payload: { searchText: event.target.value },
       });
-
+      if (apiParam && apiParam.searchText) {
+        console.log("apiParam", apiParam);
+        fetchRepoData(apiParam);
+      }
       navigate("/repository/list");
     }
   }
