@@ -3,6 +3,7 @@ import {
   DATA_SUCCESS,
   DATA_ERROR,
   SET_API_PARAMS,
+  SET_DETAILS,
 } from "../actionTypes/githubDataActionTypes";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
     page: undefined,
     sort: undefined,
   },
+  details: undefined,
 };
 
 const getGithubDataReducer = (state = initialState, payload) => {
@@ -56,6 +58,13 @@ const getGithubDataReducer = (state = initialState, payload) => {
           page: payload.page || state.apiParams.page,
           sort: payload.sort || state.apiParams.sort,
         },
+      };
+    }
+
+    case SET_DETAILS: {
+      return {
+        ...state,
+        details: payload,
       };
     }
 

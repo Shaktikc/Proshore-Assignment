@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<SearchRepository />} />
           <Route path="/repository/list" element={<ListOfRepository />} />
+          <Route path="/repository/details" element={<DetailsOfRepository />} />
         </Routes>
         {/* <SearchPageUI /> */}
         {/* <DetailsOfRepository /> */}

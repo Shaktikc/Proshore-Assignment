@@ -28,8 +28,14 @@ import RepositoriesSorting from "./components/RepositoriesSorting";
 import useListOfRepostory from "./useListOfRepository";
 
 const ListOfRepository = () => {
-  const { page, data, nextPageHandler, previousPageHandler, isFetching } =
-    useListOfRepostory();
+  const {
+    page,
+    data,
+    nextPageHandler,
+    previousPageHandler,
+    isFetching,
+    listClickHandler,
+  } = useListOfRepostory();
   console.log("fetichinf", isFetching);
   return (
     <Box>
@@ -57,13 +63,21 @@ const ListOfRepository = () => {
           </Thead>
           <Tbody pos="relative">
             {isFetching && (
-              <Center pos="absolute" top="11rem" left="37rem">
-                <Spinner size="xl" color="green.800" />
-              </Center>
+              <Spinner
+                size="xl"
+                color="green.800"
+                pos="absolute"
+                top="11rem"
+                left="37rem"
+              />
             )}
             {data?.items?.map((list) => {
               return (
-                <Tr cursor={"pointer"} key={list.id}>
+                <Tr
+                  cursor={"pointer"}
+                  key={list.id}
+                  onClick={() => listClickHandler(list)}
+                >
                   <Td>{list.full_name}</Td>
                   <Td>
                     <Image
