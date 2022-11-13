@@ -89,13 +89,12 @@ const ListOfRepository = () => {
                   </Td>
                   <Td>{list.watchers}</Td>
                   <Td>
-                    {/* <Text textOverflow={"ellipsis"} maxW="4rem">
-                      {" "}
-                      {list.description}
-                    </Text> */}
-
-                    {/* <Text> The National Institute for Health and Care</Text>
-                    <Text> executive non-departmental public...</Text> */}
+                    <HStack>
+                      <Text noOfLines={1} maxWidth={"250px"}>
+                        {list.description}
+                      </Text>
+                      <Text>...</Text>
+                    </HStack>
                   </Td>
                   <Td>
                     <Moment format="YYYY-MM-DD">
