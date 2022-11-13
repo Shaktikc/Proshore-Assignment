@@ -5,7 +5,7 @@ import persistReducer from "redux-persist/es/persistReducer";
 const persistConfig = {
   key: "apiData",
   storage,
-  whitelist: ["data", "isFetching", "error"],
+  whitelist: ["data", "isFetching", "error", "apiParams"],
 };
 
 const persistedGithubData = persistReducer(persistConfig, getGithubDataReducer);

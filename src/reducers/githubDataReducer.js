@@ -2,12 +2,17 @@ import {
   DATA_FETCHING,
   DATA_SUCCESS,
   DATA_ERROR,
+  SET_API_PARAMS,
 } from "../actionTypes/githubDataActionTypes";
 
 const initialState = {
   isFetching: false,
   error: undefined,
   data: undefined,
+  apiParams: {
+    searchText: undefined,
+    page: undefined,
+  },
 };
 
 const getGithubDataReducer = (state = initialState, payload) => {
@@ -37,6 +42,16 @@ const getGithubDataReducer = (state = initialState, payload) => {
         isFetching: false,
         error: payload.error,
         data: undefined,
+      };
+    }
+
+    case SET_API_PARAMS: {
+      return {
+        ...state,
+        apiParams: {
+          ...state.apiParams,
+          searchText: payload.searchText,
+        },
       };
     }
 

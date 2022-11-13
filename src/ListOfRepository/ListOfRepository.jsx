@@ -29,14 +29,6 @@ const ListOfRepository = () => {
   console.log("component data", data);
   return (
     <Box mt="4rem">
-      <InputGroup size="md" w="30rem">
-        <Input pr="4.5rem" type="text" placeholder="Search Repositories" />
-        <InputRightElement width="4.5rem">
-          {/* <Button h="1.75rem" size="sm" onClick={handleClick}>
-              {show ? "Hide" : "Show"}
-            </Button> */}
-        </InputRightElement>
-      </InputGroup>
       <Flex justifyContent={"space-between"} p="1rem" w="85vw">
         {" "}
         <Text fontSize={"xl"}>List of Repositories</Text>
