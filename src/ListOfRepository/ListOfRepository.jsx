@@ -51,6 +51,7 @@ const ListOfRepository = () => {
               <Th>Watchers</Th>
               <Th>Description</Th>
               <Th>last update Date</Th>
+              <Th>Number of Stars</Th>
               <Th>Forks</Th>
             </Tr>
           </Thead>
@@ -87,6 +88,7 @@ const ListOfRepository = () => {
                       {new Date(`${list.updated_at}`)}
                     </Moment>
                   </Td>
+                  <Td>{list.stargazers_count}</Td>
                   <Td>{list.forks}</Td>
                 </Tr>
               );
