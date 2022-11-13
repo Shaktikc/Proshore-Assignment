@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { SET_API_PARAMS } from "../actionTypes/githubDataActionTypes";
 import useFetchRepoData from "../api/useFetchRepoData";
-import { getData } from "../reducers/githubDataReducer";
+import { getData, getIsFetching } from "../reducers/githubDataReducer";
 
 const useListOfRepostory = () => {
   const dispatch = useDispatch();
   const data = useSelector(getData);
+  const isFetching = useSelector(getIsFetching);
   const { fetchRepoData } = useFetchRepoData();
   console.log("component data", data);
   const [page, setPage] = useState(1);
@@ -31,14 +32,13 @@ const useListOfRepostory = () => {
     if (page > 1) setPage(page - 1);
   }
 
-  console.log("page", page);
-
   return {
     page,
     setPage,
     nextPageHandler,
     previousPageHandler,
     data,
+    isFetching,
   };
 };
 

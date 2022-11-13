@@ -17,6 +17,8 @@ import {
   Input,
   InputGroup,
   Image,
+  Spinner,
+  Center,
 } from "@chakra-ui/react";
 import React from "react";
 import Moment from "react-moment";
@@ -26,8 +28,9 @@ import RepositoriesSorting from "./components/RepositoriesSorting";
 import useListOfRepostory from "./useListOfRepository";
 
 const ListOfRepository = () => {
-  const { page, data, nextPageHandler, previousPageHandler } =
+  const { page, data, nextPageHandler, previousPageHandler, isFetching } =
     useListOfRepostory();
+  console.log("fetichinf", isFetching);
   return (
     <Box>
       <Flex justifyContent={"space-between"} p="1rem" w="85vw">
@@ -51,7 +54,12 @@ const ListOfRepository = () => {
               <Th>Forks</Th>
             </Tr>
           </Thead>
-          <Tbody>
+          <Tbody pos="relative">
+            {isFetching && (
+              <Center pos="absolute" top="11rem" left="37rem">
+                <Spinner size="xl" color="green.800" />
+              </Center>
+            )}
             {data?.items?.map((list) => {
               return (
                 <Tr cursor={"pointer"} key={list.id}>
