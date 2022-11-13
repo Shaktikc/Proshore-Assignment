@@ -6,11 +6,16 @@ import {
   SET_DETAILS,
 } from "../actionTypes/githubDataActionTypes";
 import useFetchRepoData from "../api/useFetchRepoData";
-import { getData, getIsFetching } from "../reducers/githubDataReducer";
+import {
+  getData,
+  getIsFetching,
+  getApiParam,
+} from "../reducers/githubDataReducer";
 
 const useListOfRepostory = () => {
   const dispatch = useDispatch();
   const data = useSelector(getData);
+  const apiParam = useSelector(getApiParam);
   const isFetching = useSelector(getIsFetching);
   const { fetchRepoData } = useFetchRepoData();
   const [page, setPage] = useState(1);
@@ -26,10 +31,13 @@ const useListOfRepostory = () => {
       type: SET_API_PARAMS,
       payload: { page: page },
     });
-    if (page > 1) {
-      fetchRepoData();
+  }, [page]);
+
+  useEffect(() => {
+    if (apiParam && apiParam.page > 1) {
+      fetchRepoData(apiParam);
     }
-  }, [page, dispatch]);
+  }, [apiParam.page]);
 
   function nextPageHandler() {
     setPage((prevPage) => prevPage + 1);

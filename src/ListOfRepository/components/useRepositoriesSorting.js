@@ -11,8 +11,10 @@ const useRepositoriesSorting = () => {
   const apiParam = useSelector(getApiParam);
 
   useEffect(() => {
-    fetchRepoData();
-  }, [apiParam.sort]);
+    if (apiParam && apiParam.sort) {
+      fetchRepoData(apiParam);
+    }
+  }, [apiParam.sort, fetchRepoData]);
 
   function sortingHandler(e) {
     dispatch({ type: SET_API_PARAMS, payload: { sort: e.target.value } });
