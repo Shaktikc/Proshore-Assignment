@@ -10,8 +10,8 @@ function App() {
     <Container maxW={"90vw"} bg="gray.50" w="100vw" h="100vh">
       {" "}
       {/* <SearchPageUI /> */}
-      {/* <SearchRepository /> */}
-      <DetailsOfRepository />
+      <SearchRepository />
+      {/* <DetailsOfRepository /> */}
     </Container>
   );
 }

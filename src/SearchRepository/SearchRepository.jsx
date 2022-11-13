@@ -10,8 +10,10 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { Search2Icon } from "@chakra-ui/icons";
+import useSearchRepository from "./useSearchRepository";
 
 const SearchRepository = () => {
+  const { handelEnterEvent } = useSearchRepository();
   return (
     <Box>
       <Flex
@@ -32,6 +34,7 @@ const SearchRepository = () => {
             placeholder="Search"
             borderWidth={"2px"}
             borderColor="green.400"
+            onKeyDown={handelEnterEvent}
           />
           <InputRightElement width="4.5rem">
             <Search2Icon />
