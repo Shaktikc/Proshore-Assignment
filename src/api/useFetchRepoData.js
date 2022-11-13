@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDispatch } from "react-redux";
 
 import {
@@ -9,8 +10,11 @@ import {
 const useFetchRepoData = () => {
   console.log("called");
 
-  function fetchRepoData(input, sort, order, perPage, page, pg) {
+  const dispatch = useDispatch();
+
+  const fetchRepoData = useCallback((input, sort, order, perPage, page, pg) => {
     //Query Parameters - Reference: https://docs.github.com/en/rest/reference/repos
+    dispatch({ type: DATA_FETCHING });
     const queryTerm = `q=` + encodeURIComponent(input || "q");
     const querySort = `${sort ? `&sort=${sort}` : ""}`;
     const queryOrder = `${order ? `&order=${order}` : ""}`;
@@ -30,9 +34,7 @@ const useFetchRepoData = () => {
         console.error(error);
         dispatch({ type: DATA_ERROR, payload: error });
       });
-  }
-  const dispatch = useDispatch();
-  dispatch({ type: DATA_FETCHING });
+  }, []);
 
   return {
     fetchRepoData,

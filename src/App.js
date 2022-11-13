@@ -5,6 +5,7 @@ import { Container } from "@chakra-ui/react";
 import SearchRepository from "./SearchRepository/SearchRepository";
 import DetailsOfRepository from "./DetailsOfRepository/DetailsOfRepository";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
+import ListOfRepository from "./ListOfRepository/ListOfRepository";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         {" "}
         <Routes>
           <Route path="/" element={<SearchRepository />} />
+          <Route path="/repository/list" element={<ListOfRepository />} />
         </Routes>
         {/* <SearchPageUI /> */}
         {/* <DetailsOfRepository /> */}
