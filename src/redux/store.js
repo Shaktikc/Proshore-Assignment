@@ -2,16 +2,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import getGithubDataReducer from "../reducers/githubDataReducer";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
-const persistConfigLogin = {
-  key: "root",
+const persistConfig = {
+  key: "apiData",
   storage,
-  whitelist: ["apiData"],
+  whitelist: ["data", "isFetching", "error"],
 };
 
-const persistedGithubData = persistReducer(
-  persistConfigLogin,
-  getGithubDataReducer
-);
+const persistedGithubData = persistReducer(persistConfig, getGithubDataReducer);
 
 export default configureStore({
   reducer: {

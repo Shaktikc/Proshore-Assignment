@@ -7,9 +7,6 @@ import { getData } from "../reducers/githubDataReducer";
 const DetailsOfRepository = () => {
   // useFetchRepoData();
 
-  const data = useSelector(getData);
-  console.log("component data", data);
-
   return (
     <Box padding={"2rem"} lineHeight="2rem">
       <Text textAlign={"center"} fontSize="2xl">
