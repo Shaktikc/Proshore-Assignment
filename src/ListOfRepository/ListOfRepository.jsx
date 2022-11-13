@@ -28,7 +28,7 @@ const ListOfRepository = () => {
   const data = useSelector(getData);
   console.log("component data", data);
   return (
-    <Box mt="4rem">
+    <Box>
       <Flex justifyContent={"space-between"} p="1rem" w="85vw">
         {" "}
         <Text fontSize={"xl"}>List of Repositories</Text>
@@ -39,7 +39,7 @@ const ListOfRepository = () => {
       </Flex>
 
       <TableContainer mt="2rem">
-        <Table bg="green.50">
+        <Table bg="green.50" size="sm">
           <Thead bg="green.100">
             <Tr>
               <Th>Name</Th>
@@ -58,8 +58,8 @@ const ListOfRepository = () => {
                   <Td>
                     <Image
                       src={list.owner.avatar_url}
-                      w="4rem"
-                      h="4rem"
+                      w="2rem"
+                      h="2rem"
                       borderRadius={"50%"}
                     />
                   </Td>

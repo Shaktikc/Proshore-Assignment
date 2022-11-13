@@ -18,7 +18,7 @@ const useFetchRepoData = () => {
     const queryTerm = `q=` + encodeURIComponent(input || "q");
     const querySort = `${sort ? `&sort=${sort}` : ""}`;
     const queryOrder = `${order ? `&order=${order}` : ""}`;
-    const queryPerPage = `&per_page=${perPage || 30}`;
+    const queryPerPage = `&per_page=${perPage || 10}`;
     const queryPage = `&page=${page || 1}`;
     const queryString =
       queryTerm + querySort + queryOrder + queryPerPage + queryPage;
