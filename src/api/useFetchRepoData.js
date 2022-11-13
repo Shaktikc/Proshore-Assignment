@@ -1,25 +1,28 @@
 import { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   DATA_FETCHING,
   DATA_SUCCESS,
   DATA_ERROR,
 } from "../actionTypes/githubDataActionTypes";
+import { getApiParam } from "../reducers/githubDataReducer";
 
 const useFetchRepoData = () => {
   console.log("called");
 
   const dispatch = useDispatch();
+  const apiParam = useSelector(getApiParam);
+  console.log("apiParam", apiParam);
 
-  const fetchRepoData = useCallback((input, sort, order, perPage, page, pg) => {
+  const fetchRepoData = () => {
     //Query Parameters - Reference: https://docs.github.com/en/rest/reference/repos
     dispatch({ type: DATA_FETCHING });
-    const queryTerm = `q=` + encodeURIComponent(input || "q");
-    const querySort = `${sort ? `&sort=${sort}` : ""}`;
-    const queryOrder = `${order ? `&order=${order}` : ""}`;
-    const queryPerPage = `&per_page=${perPage || 10}`;
-    const queryPage = `&page=${page || 1}`;
+    const queryTerm = `q=` + encodeURIComponent(apiParam.searchText || "q");
+    const querySort = `${apiParam.sort ? `&sort=${apiParam.sort}` : ""}`;
+    const queryOrder = `${apiParam.order ? `&order=${apiParam.order}` : ""}`;
+    const queryPerPage = `&per_page=${apiParam.perPage || 10}`;
+    const queryPage = `&page=${apiParam.page || 1}`;
     const queryString =
       queryTerm + querySort + queryOrder + queryPerPage + queryPage;
 
@@ -34,7 +37,7 @@ const useFetchRepoData = () => {
         console.error(error);
         dispatch({ type: DATA_ERROR, payload: error });
       });
-  }, []);
+  };
 
   return {
     fetchRepoData,

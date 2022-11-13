@@ -12,6 +12,7 @@ const initialState = {
   apiParams: {
     searchText: undefined,
     page: undefined,
+    sort: undefined,
   },
 };
 
@@ -53,6 +54,7 @@ const getGithubDataReducer = (state = initialState, payload) => {
           ...state.apiParams,
           searchText: payload.searchText || state.apiParams.searchText,
           page: payload.page || state.apiParams.page,
+          sort: payload.sort || state.apiParams.sort,
         },
       };
     }
@@ -66,8 +68,10 @@ export default getGithubDataReducer;
 
 //selector functions
 export const getData = (state) => {
-  console.log("state", state);
   return state.apiData.data;
+};
+export const getApiParam = (state) => {
+  return state.apiData.apiParams;
 };
 export const getIsFetching = (state) => state.apiData.isFetching;
 export const getDataError = (state) => state.apiData.error;

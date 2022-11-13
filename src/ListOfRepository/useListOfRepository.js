@@ -8,22 +8,27 @@ import { getData } from "../reducers/githubDataReducer";
 const useListOfRepostory = () => {
   const dispatch = useDispatch();
   const data = useSelector(getData);
+  const { fetchRepoData } = useFetchRepoData();
   console.log("component data", data);
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    console.log("page");
     dispatch({
       type: SET_API_PARAMS,
       payload: { page: page },
     });
+    if (page > 1) {
+      fetchRepoData();
+    }
   }, [page, dispatch]);
 
   function nextPageHandler() {
-    setPage(page + 1);
+    setPage((prevPage) => prevPage + 1);
   }
 
   function previousPageHandler() {
-    if (page >= 1) setPage(page - 1);
+    if (page > 1) setPage(page - 1);
   }
 
   console.log("page", page);

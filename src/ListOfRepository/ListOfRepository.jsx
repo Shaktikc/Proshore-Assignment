@@ -26,7 +26,7 @@ import RepositoriesSorting from "./components/RepositoriesSorting";
 import useListOfRepostory from "./useListOfRepository";
 
 const ListOfRepository = () => {
-  const { page, setPage, data, nextPageHandler, previousPageHandler } =
+  const { page, data, nextPageHandler, previousPageHandler } =
     useListOfRepostory();
   return (
     <Box>
@@ -66,10 +66,10 @@ const ListOfRepository = () => {
                   </Td>
                   <Td>{list.watchers}</Td>
                   <Td>
-                    <Text textOverflow={"ellipsis"} maxW="4rem">
+                    {/* <Text textOverflow={"ellipsis"} maxW="4rem">
                       {" "}
                       {list.description}
-                    </Text>
+                    </Text> */}
 
                     {/* <Text> The National Institute for Health and Care</Text>
                     <Text> executive non-departmental public...</Text> */}

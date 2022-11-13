@@ -12,8 +12,11 @@ import {
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
 import React from "react";
+import useRepositoriesSorting from "./useRepositoriesSorting";
 
 const RepositoriesSorting = () => {
+  const { sortingHandler } = useRepositoriesSorting();
+
   return (
     <Menu>
       <MenuButton
@@ -25,12 +28,10 @@ const RepositoriesSorting = () => {
       >
         Sort By
       </MenuButton>
-      <MenuList>
-        <MenuItem>Download</MenuItem>
-        <MenuItem>Create a Copy</MenuItem>
-        <MenuItem>Mark as Draft</MenuItem>
-        <MenuItem>Delete</MenuItem>
-        <MenuItem>Attend a Workshop</MenuItem>
+      <MenuList onClick={sortingHandler}>
+        <MenuItem value="forks">Forks</MenuItem>
+        <MenuItem value="stars">Stars</MenuItem>
+        <MenuItem value="updated">Updated</MenuItem>
       </MenuList>
     </Menu>
   );
