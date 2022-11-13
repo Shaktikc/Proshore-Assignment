@@ -34,7 +34,7 @@ const useListOfRepostory = () => {
   }, [page]);
 
   useEffect(() => {
-    if (apiParam && apiParam.page > 1) {
+    if (apiParam && apiParam.page >= 1) {
       fetchRepoData(apiParam);
     }
   }, [apiParam.page]);
